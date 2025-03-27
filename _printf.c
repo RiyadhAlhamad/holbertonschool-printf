@@ -26,7 +26,10 @@ int _printf(const char *format, ...)
             else if (*format == 'c')
                 count += print_char(args);
             else if (*format == '%')
-                count += print_percent();
+            {
+                write(1, "%", 1); // Print only the '%' character
+                count += 1; // Increment count for '%' printed
+            }
             else if (*format == 'd')
                 count += print_decimal(args);
             else if (*format == 'i')
@@ -35,7 +38,7 @@ int _printf(const char *format, ...)
             {
                 write(1, "%", 1);
                 write(1, format, 1);
-                count += 2;
+                count += 2; // Account for both '%' and the next character
             }
         }
         else
