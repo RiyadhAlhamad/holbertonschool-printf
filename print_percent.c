@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include <unistd.h>
-#include "main.h"
 /**
 * print_percent - Prints a percent symbol (%)
 * @args: Argument list (unused)
