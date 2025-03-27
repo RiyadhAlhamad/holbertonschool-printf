@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdarg.h>
 /**
 * print_int - Prints an integer
 * @args: Argument list containing the integer to print
