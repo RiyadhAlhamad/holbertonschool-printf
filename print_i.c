@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "main.h"
-
+/**
+* print_int - Prints an integer
+* @args: Argument list containing the integer to print
+*
+* Return: Number of characters printed
+*/
 int print_int(va_list args)
 {
 int num = va_arg(args, int);
