@@ -34,12 +34,6 @@ int _printf(const char *format, ...)
 				case '%':
 					count += print_percent();
 					break;
-				case 'd':
-					count += print_decimal(args);
-					break;
-				case 'i':
-					count += print_int(args);
-					break;
 				default:
 					write(1, "%", 1);
 					write(1, format, 1);
