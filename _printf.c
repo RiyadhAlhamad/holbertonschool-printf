@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include "main.h"
+#include <stdarg.h>
 /**
 * _printf - Custom printf function that mimics printf behavior
 * @format: Format string containing the characters and format specifiers
