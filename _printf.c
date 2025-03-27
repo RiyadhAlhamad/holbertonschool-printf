@@ -1,6 +1,11 @@
 #include <unistd.h>
 #include "mylib.h"
-
+/**
+* _printf - Custom printf function that mimics printf behavior
+* @format: Format string containing the characters and format specifiers
+*
+* Return: Number of characters printed, or -1 if format is NULL
+*/
 int _printf(const char *format, ...)
 {
 	va_list args;
