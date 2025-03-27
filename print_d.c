@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdarg.h>
 /**
 * print_decimal - Prints an integer in decimal format
 * @args: Argument list containing the integer to print
