@@ -25,12 +25,13 @@ int _printf(const char *format, ...)
 			{
 				case 's': count += print_string(args); break;
 				case 'c': count += print_char(args); break;
-				case '%': count += print_percent(args); break;
+				case '%': count += print_percent(); break;
 				case 'd': count += print_decimal(args); break;
 				case 'i': count += print_int(args); break;
 				default:
-					  write(1, format, 1);
-					  count += 1;
+					write(1, "%", 1);
+					write(1, format, 1);
+					count += 2;
 			}
 		}else
 		{
