@@ -18,9 +18,12 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%' && *format != '\0')
+		if (*format == '%')
 		{
 			format++;
+			if (*format != '\0')
+				return -1;
+			
 			switch (*format)
 			{
 				case 's': count += print_string(args); break;
