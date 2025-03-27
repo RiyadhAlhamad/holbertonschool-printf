@@ -21,11 +21,13 @@ int _printf(const char *format, ...)
 		if (*format == '%' && *(format + 1))
 		{
 			format++;
+			if (*format == '%')
+				count += writ(1, "%", 1);
+			
 			switch (*format)
 			{
 				case 's': count += print_string(args); break;
 				case 'c': count += print_char(args); break;
-				case '%': count += print_percent(); break;
 				case 'd': count += print_decimal(args); break;
 				case 'i': count += print_int(args); break;
 				default:
