@@ -2,8 +2,10 @@
 #include "main.h"
 #include <stdarg.h>
 /**
-* _printf - Custom printf function that mimics printf behavior
-* @format: Format string containing the characters and format specifiers
+* _printf - Custom printf function that
+* mimics printf behavior
+* @format: Format string containing the characters
+* and format specifiers
 *
 * Return: Number of characters printed, or -1 if format is NULL
 */
@@ -33,6 +35,12 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					count += print_percent();
+					break;
+				case 'd':
+					count += print_decimal(args);
+					break;
+				case 'i':
+					count += print_int(args);
 					break;
 				default:
 					write(1, "%", 1);
