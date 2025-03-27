@@ -41,7 +41,8 @@ int _printf(const char *format, ...)
 					write(1, format, 1);
 					count += 2;
 			}
-		}else
+		}
+		else
 		{
 			write(1, format, 1);
 			count++;
