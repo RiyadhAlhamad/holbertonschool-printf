@@ -9,45 +9,50 @@
 */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    int count = 0;
+	va_list args;
+	int count = 0;
 
-    if (!format)
-        return (-1);
+	if (!format)
+		return (-1);
 
-    va_start(args, format);
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-            if (*format == 's')
-                count += print_string(args);
-            else if (*format == 'c')
-                count += print_char(args);
-            else if (*format == '%')
-            {
-                write(1, "%", 1); // Print only the '%' character
-                count += 1; // Increment count for '%' printed
-            }
-            else if (*format == 'd')
-                count += print_decimal(args);
-            else if (*format == 'i')
-                count += print_int(args);
-            else
-            {
-                write(1, "%", 1);
-                write(1, format, 1);
-                count += 2; // Account for both '%' and the next character
-            }
-        }
-        else
-        {
-            write(1, format, 1);
-            count++;
-        }
-        format++;
-    }
-    va_end(args);
-    return (count);
+	va_start(args, format);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '\0')
+				return (-1);
+			switch (*format)
+			{
+				case 's':
+					count += print_string(args);
+					break;
+				case 'c':
+					count += print_char(args);
+					break;
+				case '%':
+					count += print_percent();
+					break;
+				case 'd':
+					count += print_decimal(args);
+					break;
+				case 'i':
+					count += print_int(args);
+					break;
+				default:
+					write(1, "%", 1);
+					write(1, format, 1);
+					count += 2;
+			}
+		}
+		else
+		{
+			write(1, format, 1);
+			count++;
+		}
+		format++;
+	}
+	va_end(args);
+	return (count);
 }
