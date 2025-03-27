@@ -45,6 +45,18 @@ int _printf(const char *format, ...)
 				case 'b':
 					count += print_binary(args);
 					break;
+				case 'u':
+					count += print_unsigned(args);
+					break;
+				case 'o':
+					count += print_octal(args);
+					break;
+				case 'x':
+					count += print_hex(args, 0);
+					break;
+				case 'X':
+					count += print_hex(args, 1);
+					break;
 				default:
 					write(1, "%", 1);
 					write(1, format, 1);
