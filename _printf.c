@@ -23,22 +23,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				return (-1);
-			format(format, args, &count);
-		}
-		else
-		{
-			write(1, format, 1);
-			count++;
-		}
-		format++;
-	}
-	va_end(args);
-	return (count);
-}
-
-void format(const char *format, va_list args, int *count)
-{
-	switch (*format)
+			switch (*format)
 			{
 				case 's':
 					count += print_string(args);
@@ -60,4 +45,14 @@ void format(const char *format, va_list args, int *count)
 					write(1, format, 1);
 					count += 2;
 			}
+		}
+		else
+		{
+			write(1, format, 1);
+			count++;
+		}
+		format++;
+	}
+	va_end(args);
+	return (count);
 }
