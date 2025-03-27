@@ -1,5 +1,10 @@
 #include <unistd.h>
-
+/**
+* print_string - Prints a string
+* @args: Argument list containing the string to print
+*
+* Return: Number of characters printed
+*/
 int print_string(va_list args)
 {
 	char *str = va_arg(args, char *);
