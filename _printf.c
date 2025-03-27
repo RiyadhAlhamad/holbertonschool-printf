@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	if (!format)
-		return -1;
+		return (-1);
 
 	va_start(args, format);
 	while (*format)
@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-				return -1;
+				return (-1);
 			
 			switch (*format)
 			{
@@ -44,5 +44,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return count;
+	return (count);
 }
